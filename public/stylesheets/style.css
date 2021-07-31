@@ -1,0 +1,8 @@
+/* .container{padding-top: 20px;} */
+.card img{max-width: 200px;height: 200px;padding-top: 10px;}
+.card .card-title{font-size: 20px;}
+.card .card-text{font-size: 10px;}
+.buttonundprice{display: flex;justify-content: space-between;}
+.price{font-size: 20px;font-weight: bold;}
+.row{padding-top: 20px;}
+.ba{color:white;background-color: #BD2130;}

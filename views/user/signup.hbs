@@ -1,0 +1,29 @@
+<center>
+<h5>Sign up</h5>
+{{#each erromsg}}
+<div class="alert alert-danger" role="alert">
+{{this}}</div>
+{{/each}}
+<form class="row g-3" method="POST" action="signup">
+<div>
+  <div class="col-auto">
+    <label >Email</label>
+    <input type="text"   placeholder="email@example.com"
+    name="email" >
+  </div>
+  <div class="col-auto">
+    <label >Password</label>
+    <input type="password"  placeholder="Password" name="password">
+  </div>
+  <div class="col-auto">
+    <label >Password</label>
+    <input type="password"  placeholder="Confirm Password" name="confirm">
+  </div>
+  <div class="col-auto">
+        <input type="hidden" value="{{csrfToken}}" name="_csrf"> 
+
+    <button type="submit" class="btn btn-primary mb-3" >Create Acount</button>
+  </div>
+  </div>
+</form>
+</center>
