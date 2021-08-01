@@ -153,7 +153,6 @@ if(req.user.cart.selectedProduct.length<=1){
    req.user.cart.totalprice =req.user.cart.totalprice-req.user.cart.selectedProduct[index].price ;
    req.user.cart.selectedProduct.splice(index,1)
    req.user.cart.createdAt=Date.now();
-
    Cart.updateOne({ _id: req.user.cart._id }, { $set: req.user.cart }, (err, doc) => {
       if (err) { console.log(err); }
       console.log(doc)

@@ -14,7 +14,9 @@ router.get("/signup",csrfProtection,isnotLogin, function (req, res, next) {
   res.render("user/signup", { title: "Sign up", erromsg: message , csrfToken: req.csrfToken() })})
 router.post(
   "/signup",
-  body("email").not().isEmpty(),
+  body("firstname").not().isEmpty(),
+  body("lastname").not().isEmpty(),
+  body('email').isEmail(),
   body("password").not().isEmpty(),
   body("password").isLength({ min: 5 }),
   body("confirm").custom((value, { req }) => {
@@ -44,25 +46,28 @@ router.get("/login",csrfProtection,isnotLogin, function (req, res) {
   res.render("user/login",{ title: "Login", massag: messageerror , csrfToken: req.csrfToken()});
 });
 router.get("/profile", isLogin, (req, res) => {
+  profileinfo=req.user
   if (req.user.cart)
     totalquantity=req.user.cart.totalquantity;
     else 
     totalquantity=0;
+
     order.find({user:req.user._id},(err,order)=>{
       if (err)
-{      console.log(err)
-}      console.log(order)
+{      console.log(err)}    
+      
 res.render("user/profile", {
   title: "profile",
   check: true,
   checkprofile: true,
   totalquantity:totalquantity,
-  orderuser:order
+  orderuser:order,
+  profileinfo:profileinfo,
 });
-    })
 
-  
+    })
  
+
 });
 router.post(
   "/login",

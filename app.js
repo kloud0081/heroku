@@ -14,15 +14,19 @@ const stripe = require('stripe')('SECRET_KEY'); // Add your Secret Key Here
 
 var app = express();
 
-app.get("/p",(req,res)=>{
-  res.sendFile(__dirname+"/public/k.html")
-})
-
-mongoose.connect("mongodb://localhost/od",{useNewUrlParser:true,useCreateIndex:true},(error)=>{
-  if (error)
-  console.log(error)
-  else console.log("connected to db")
-})
+//  mongoose.connect("mongodb://localhost/od",{useNewUrlParser:true,useCreateIndex:true},(error)=>{
+//    if (error)
+//    console.log(error)
+//    else console.log("connected to db")
+//  })
+  const url="mongodb+srv://data:data@cluster0.f8o67.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+     mongoose.connect(url,{ useNewUrlParser: true },(err)=>{
+         if (err)
+         console.log(err)
+         else
+         console.log("connected to db")
+         })
+        
 //import passport to define
 require("./config/passport")
 // // view engine setup

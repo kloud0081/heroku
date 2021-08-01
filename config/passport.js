@@ -7,7 +7,7 @@ passport.serializeUser((user, done) => {
   return done(null, user, user.id);
 });
 passport.deserializeUser((id, done) => {
-  User.findById(id, "email", (err, user) => {
+  User.findById(id, "lastname firstname email", (err, user) => {
       Cart.findById(id,(err,cart)=>{
         if (!cart)
             {        return done(err, user);}
@@ -53,13 +53,15 @@ passport.use(
       passwordField: "password",
       passReqToCallback: true,
     },
-    (req, email,password, done) => {
+    (req, email,password,done) => {
       User.findOne({ email: email }, (err, user) => {
         if (err) {
           return done(err);} 
         if (user) {
           return done(null,false,req.flash("errorsignup", "email already exist"))}
         const model = new User({
+          lastname:req.body.lastname,
+          firstname:req.body.firstname,
           email: email,
           password: new User().hashPassword(password),
         });

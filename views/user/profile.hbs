@@ -9,7 +9,7 @@
 <div class="col-sm-9">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">User</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Order</button>
@@ -23,14 +23,14 @@
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="container">
   <div class="row row-cols-2">
-    <div class="col"><p class="fw-bolder">User Name:</p></div>
-    <div class="col"><p class="fst-normal">T</p></div>
-    <div class="col"><p class="fw-bolder">Email:</p></div>
-    <div class="col"><p class="fst-normal">T</p></div>
-    <div class="col"><p class="fw-bolder">Contact</p></div>
-    <div class="col"><p class="fst-normal">T</p></div>
+    <div class="col"><p class="fw-bolder">First Name:</p></div>
+    <div class="col"><p class="fst-normal">{{profileinfo.firstname}}</p></div>
+    <div class="col"><p class="fw-bolder">Last name:</p></div>
+    <div class="col"><p class="fst-normal">{{profileinfo.lastname}}</p></div>
+    <div class="col"><p class="fw-bolder">Email</p></div>
+    <div class="col"><p class="fst-normal">{{profileinfo.email}}</p></div>
     <div class="col"><p class="fw-bolder">Adress:</p></div>
-    <div class="col"><p class="fst-normal">T</p></div>
+    <div class="col"><p class="fst-normal">---</p></div>
     <div class="col"><p class="fw-bolder">Password</p></div>
     <div class="col"><p class="fst-normal">*****</p></div>
     <div class="text-center"> <button type="button" class="btn btn-primary" id="updatedata">Update</button>
@@ -91,9 +91,6 @@
 </div>
 </div>
 </div>
-
-
-
 
 <script>
   function showPreviewOne(event){

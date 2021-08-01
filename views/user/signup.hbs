@@ -6,6 +6,16 @@
 {{/each}}
 <form class="row g-3" method="POST" action="signup">
 <div>
+    <div class="col-auto">
+    <label >Firstname</label>
+    <input type="text"   placeholder="Firstname"
+    name="firstname" >
+  </div>
+    <div class="col-auto">
+    <label >Lastname</label>
+    <input type="text"   placeholder="Lastname"
+    name="lastname" >
+  </div>
   <div class="col-auto">
     <label >Email</label>
     <input type="text"   placeholder="email@example.com"
@@ -21,7 +31,6 @@
   </div>
   <div class="col-auto">
         <input type="hidden" value="{{csrfToken}}" name="_csrf"> 
-
     <button type="submit" class="btn btn-primary mb-3" >Create Acount</button>
   </div>
   </div>

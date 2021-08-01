@@ -1,10 +1,18 @@
 const mongoose=require("mongoose")
 const Product=require("../models/Product")
-mongoose.connect("mongodb://localhost/od",{useNewUrlParser:true},(error)=>{
-  if (error)
-  console.log(error)
-  else console.log("connected to db")
-})
+// mongoose.connect("mongodb://localhost/od",{useNewUrlParser:true},(error)=>{
+//   if (error)
+//   console.log(error)
+//   else console.log("connected to db")
+// })
+
+const url="mongodb+srv://data:data@cluster0.f8o67.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    mongoose.connect(url,{ useNewUrlParser: true },(err)=>{
+        if (err)
+        console.log(err)
+        else
+        console.log("connected to db")
+        })
 const arr=[
 {imagepath:"/images/u.jpg" ,
 productname:"huwawei y10",
